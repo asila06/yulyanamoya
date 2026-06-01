@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для моей любимой</title>
+    <!-- Версия обновлена до 10.0 для сброса кэша на мобилке -->
+    <link rel="stylesheet" href="./stil.css?v=10.0">
+</head>
+<body>
+
+    <!-- Задний фон с меняющимися фото -->
+    <div class="background-slider">
+        <div class="slide active" style="background-image: url('ссылка_на_фото_1.jpg');"></div>
+        <div class="slide" style="background-image: url('ссылка_на_фото_2.jpg');"></div>
+        <div class="slide" style="background-image: url('ссылка_на_фото_3.jpg');"></div>
+    </div>
+
+    <!-- Контейнер для дождя из сердечек -->
+    <div class="hearts-container" id="hearts"></div>
+
+    <!-- ЭКРАН 1: Вопрос "Ты меня любишь?" -->
+    <section class="screen active" id="quiz-screen">
+        <div class="card">
+            <h1>Ты меня любишь? 💖</h1>
+            <p class="subtitle">Попробуй нажать «Нет» 😉</p>
+            <div class="btn-group">
+                <button id="btn-yes" class="btn btn-yes">Да! Навсегда! 😭❤️</button>
+                <button id="btn-no" class="btn btn-no">Нет</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ЭКРАН 2: Главное меню и контент -->
+    <section class="screen" id="main-screen">
+        <nav class="tabs">
+            <button class="tab-btn active" onclick="switchTab('photos')">📷 Милые фото</button>
+            <button class="tab-btn" onclick="switchTab('wishes')">✨ Юлька моя</button>
+            <button class="tab-btn" onclick="switchTab('love')">❤️ Моя любовь к тебе</button>
+            <button class="tab-btn" onclick="switchTab('test-menu')">🧩 Пройди тест</button>
+        </nav>
+
+        <!-- Вкладка 1: Фото -->
+        <div id="photos" class="tab-content active">
+            <div class="card">
+                <h2>Солнышко моё</h2>
+                <div class="gallery">
+                    <img src="photo1.jpg" alt="Моя красивая">
+                    <img src="photo2.jpg" alt="Самая лучшая">
+                    <img src="photo3.jpg" alt="Любимая">
+                    <img src="photo4.jpg" alt="Любимая">
+                    <img src="photo5.jpg" alt="Любимая">
+                    <img src="photo6.jpg" alt="Любимая">
+                </div>
+            </div>
+        </div>
+
+        <!-- Вкладка 2: Пожелания -->
+        <div id="wishes" class="tab-content">
+            <div class="card">
+                <h2>О моей любви</h2>
+                <ul class="wishes-list">
+                        <li>🌸Ты  моя неповторимая красотка, которую просто невозможно забыть. Каждую миллисекунду я вспоминаю о тебе. Любая наша ссора для меня  огромное испытание, ведь я безумно боюсь тебя потерять. Ради нас я учусь быть спокойным и сдержанным, чтобы ни в коем случае не ранить тебя и защитить твоё эмоциональное состояние. Ты  моё вдохновение, моё солнце, и ради тебя я хочу становиться лучше каждый день. Спасибо за то, что ты есть в моей жизни</li>
+                           <li></li> Я честно незнаю что в будущем будет но я буду стараться быть с тобой всегда. Я хочу чтоб твоя мама доверяла свою маленькую дочку мне. Я ее буду оберегать как свои два глаза и как мизинчик Егорика. 
+                        </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <!-- Вкладка 3: О нас -->
+        <div id="love" class="tab-content">
+            <div class="card">
+                <h2>Почему ты мне так дорога... 🌹</h2>
+                <div style="font-style: italic; color: #c9184a; border-top: 1px solid #ffccd5; margin-top: 20px; padding-top: 15px; font-size: 15px; line-height: 1.5;">
+            «Я не могу её не взять,<br>
+            Когда люблю! — Да и за что же<br>
+            Любовь безмолвием казнить?<br>
+            Мы умереть за тех должны,<br>
+            Кого решились полюбить!»<br>
+            <span style="font-size: 12px; display: block; margin-top: 5px; color: #ff758f;">— М. Ю. Лермонтов</span>
+        </div>
+            </div>
+        </div>
+
+        <!-- Вкладка 4: Тест -->
+        <div id="test-menu" class="tab-content">
+            <div class="card">
+                <h2>Хорошо ли ты меня знаешь? 🤔</h2>
+                <p class="subtitle" id="quiz-progress">Вопрос 1 из 3</p>
+                
+                <div id="test-container">
+                    <h3 id="question-text" class="question-title">Загрузка вопроса...</h3>
+                    <div class="quiz-options" id="options-container"></div>
+                </div>
+
+                <div id="quiz-result" class="quiz-result-box" style="display: none;">
+                    <h3>Ура! Тест пройден на 100%! 🎉</h3>
+                    <p id="result-comment">Ты знаешь меня идеально! А теперь посмотри сюда:</p>
+                    
+                    <div class="love-meter">
+                        <div class="love-meter-bar" id="love-bar"></div>
+                    </div>
+                    <p class="love-meter-text">Шкала нашей любви: <span id="love-percent">100000%</span></p>
+
+                    <div class="days-counter">
+                        <p>Мы счастливы вместе уже</p>
+                        <div class="days-number">22 дней</div>
+                        <p>и это только начало... ∞</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="music-player">
+            <audio id="bg-music" src="dlya_tenya.mp3" loop></audio>
+            <button id="music-toggle" class="btn-music">🎵 Включить музыку</button>
+        </div>
+    </section>
+
+    <script src="./script.js?v=10.0"></script>
+</body>
+</html>
