@@ -4,22 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Для моей любимой</title>
-    <!-- Версия обновлена до 10.0 для сброса кэша на мобилке -->
-    <link rel="stylesheet" href="./stil.css?v=10.0">
+    <link rel="stylesheet" href="./stil.css?v=10.1">
 </head>
 <body>
 
-    <!-- Задний фон с меняющимися фото -->
     <div class="background-slider">
-        <div class="slide active" style="background-image: url('ссылка_на_фото_1.jpg');"></div>
-        <div class="slide" style="background-image: url('ссылка_на_фото_2.jpg');"></div>
-        <div class="slide" style="background-image: url('ссылка_на_фото_3.jpg');"></div>
+        <div class="slide active" style="background-image: url('photo1.jpg');"></div>
+        <div class="slide" style="background-image: url('photo2.jpg');"></div>
+        <div class="slide" style="background-image: url('photo3.jpg');"></div>
     </div>
 
-    <!-- Контейнер для дождя из сердечек -->
     <div class="hearts-container" id="hearts"></div>
 
-    <!-- ЭКРАН 1: Вопрос "Ты меня любишь?" -->
     <section class="screen active" id="quiz-screen">
         <div class="card">
             <h1>Ты меня любишь? 💖</h1>
@@ -31,7 +27,6 @@
         </div>
     </section>
 
-    <!-- ЭКРАН 2: Главное меню и контент -->
     <section class="screen" id="main-screen">
         <nav class="tabs">
             <button class="tab-btn active" onclick="switchTab('photos')">📷 Милые фото</button>
@@ -40,7 +35,6 @@
             <button class="tab-btn" onclick="switchTab('test-menu')">🧩 Пройди тест</button>
         </nav>
 
-        <!-- Вкладка 1: Фото -->
         <div id="photos" class="tab-content active">
             <div class="card">
                 <h2>Солнышко моё</h2>
@@ -55,35 +49,30 @@
             </div>
         </div>
 
-        <!-- Вкладка 2: Пожелания -->
         <div id="wishes" class="tab-content">
             <div class="card">
                 <h2>О моей любви</h2>
                 <ul class="wishes-list">
-                        <li>🌸Ты  моя неповторимая красотка, которую просто невозможно забыть. Каждую миллисекунду я вспоминаю о тебе. Любая наша ссора для меня  огромное испытание, ведь я безумно боюсь тебя потерять. Ради нас я учусь быть спокойным и сдержанным, чтобы ни в коем случае не ранить тебя и защитить твоё эмоциональное состояние. Ты  моё вдохновение, моё солнце, и ради тебя я хочу становиться лучше каждый день. Спасибо за то, что ты есть в моей жизни</li>
-                           <li></li> Я честно незнаю что в будущем будет но я буду стараться быть с тобой всегда. Я хочу чтоб твоя мама доверяла свою маленькую дочку мне. Я ее буду оберегать как свои два глаза и как мизинчик Егорика. 
-                        </li>
-
+                    <li>🌸 Ты моя неповторимая красотка, которую просто невозможно забыть. Каждую миллисекунду я вспоминаю о тебе. Любая наша ссора для меня огромное испытание, ведь я безумно боюсь тебя потерять. Ради нас я учусь быть спокойным и сдержанным, чтобы ни в коем случае не ранить тебя и защитить твоё эмоциональное состояние. Ты моё вдохновение, моё солнце, и ради тебя я хочу становиться лучше каждый день. Спасибо за то, что ты есть в моей жизни.</li>
+                    <li>🪐 Я честно не знаю, что в будущем будет, но я буду стараться быть с тобой всегда. Я хочу, чтоб твоя мама доверяла свою маленькую дочку мне. Я её буду оберегать как свои два глаза и как мизинчик Егорика.</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Вкладка 3: О нас -->
         <div id="love" class="tab-content">
             <div class="card">
                 <h2>Почему ты мне так дорога... 🌹</h2>
                 <div style="font-style: italic; color: #c9184a; border-top: 1px solid #ffccd5; margin-top: 20px; padding-top: 15px; font-size: 15px; line-height: 1.5;">
-            «Я не могу её не взять,<br>
-            Когда люблю! — Да и за что же<br>
-            Любовь безмолвием казнить?<br>
-            Мы умереть за тех должны,<br>
-            Кого решились полюбить!»<br>
-            <span style="font-size: 12px; display: block; margin-top: 5px; color: #ff758f;">— М. Ю. Лермонтов</span>
-        </div>
+                    «Я не могу её не взять,<br>
+                    Когда люблю! — Да и за что же<br>
+                    Любовь безмолвием казнить?<br>
+                    Мы умереть за тех должны,<br>
+                    Кого решились полюбить!»<br>
+                    <span style="font-size: 12px; display: block; margin-top: 5px; color: #ff758f;">— М. Ю. Лермонтов</span>
+                </div>
             </div>
         </div>
 
-        <!-- Вкладка 4: Тест -->
         <div id="test-menu" class="tab-content">
             <div class="card">
                 <h2>Хорошо ли ты меня знаешь? 🤔</h2>
@@ -105,7 +94,7 @@
 
                     <div class="days-counter">
                         <p>Мы счастливы вместе уже</p>
-                        <div class="days-number">22 дней</div>
+                        <div class="days-number">22 дня</div>
                         <p>и это только начало... ∞</p>
                     </div>
                 </div>
@@ -118,6 +107,6 @@
         </div>
     </section>
 
-    <script src="./script.js?v=10.0"></script>
+    <script src="./script.js?v=10.1"></script>
 </body>
 </html>
