@@ -1,4 +1,3 @@
-// 1. Слайдшоу заднего фона (каждые 3 секунды)
 const slides = document.querySelectorAll('.slide');
 let currentSlide = 0;
 
@@ -8,7 +7,6 @@ setInterval(() => {
     slides[currentSlide].classList.add('active');
 }, 3000);
 
-// 2. Убегающая кнопка «НЕТ»
 const btnNo = document.getElementById('btn-no');
 
 function moveButton() {
@@ -32,7 +30,6 @@ btnNo.addEventListener('touchstart', (e) => {
     moveButton();
 });
 
-// 3. Нажатие на кнопку «ДА»
 const btnYes = document.getElementById('btn-yes');
 const quizScreen = document.getElementById('quiz-screen');
 const mainScreen = document.getElementById('main-screen');
@@ -42,7 +39,7 @@ const musicToggle = document.getElementById('music-toggle');
 btnYes.addEventListener('click', () => {
     quizScreen.classList.remove('active');
     mainScreen.classList.add('active');
-    startHearts(); // Запуск сильного дождя из сердечек
+    startHearts();
     
     music.play().then(() => {
         musicToggle.textContent = "⏸ Остановить музыку";
@@ -51,7 +48,6 @@ btnYes.addEventListener('click', () => {
     });
 });
 
-// 4. Переключение табов меню
 function switchTab(tabId) {
     document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -64,7 +60,6 @@ function switchTab(tabId) {
     }
 }
 
-// 5. БАЗА ВОПРОСОВ ДЛЯ ТЕСТА
 const quizData = [
     {
         question: "Какое моё самое любимое хобби на свете?",
@@ -78,7 +73,7 @@ const quizData = [
     },
     {
         question: "Где бы я хотел оказаться прямо сейчас?",
-        options: ["На море 🌊", "С друзьями ", "В ПК клубе", "В постельке 😴 с тобой"],
+        options: ["На море 🌊", "С друзьями ", "В ПК клубе", "В постельке 😴 с тобой)"],
         correct: 3
     }
 ];
@@ -142,7 +137,6 @@ function showResult() {
     setTimeout(() => { loveBar.style.width = '100%'; }, 100);
 }
 
-// 6. ИСПРАВЛЕНО: Настоящий густой дождь из сердечек
 function startHearts() {
     const container = document.getElementById('hearts');
     const heartTypes = ['❤️', '💖', '💗', '💕', '❣'];
@@ -151,20 +145,15 @@ function startHearts() {
         const heart = document.createElement('div');
         heart.classList.add('heart');
         
-        // Рандомный выбор вида сердечка
         heart.innerHTML = heartTypes[Math.floor(Math.random() * heartTypes.length)];
         
-        // Случайная позиция по горизонтали (от 0 до 100% ширины экрана)
         heart.style.left = Math.random() * 100 + 'vw';
         
-        // Случайная скорость падения дождя (от 1.5 до 4 секунд)
         const duration = Math.random() * 2.5 + 1.5;
         heart.style.animationDuration = duration + 's';
         
-        // Случайный размер капли-сердечка (от 12px до 28px)
         heart.style.fontSize = (Math.random() * 16 + 12) + 'px';
         
-        // Передаем в CSS случайное отклонение по ветру вбок и угол закручивания
         const swayX = (Math.random() * 80 - 40) + 'px';
         const rotation = (Math.random() * 360 - 180) + 'deg';
         heart.style.setProperty('--sway-x', swayX);
@@ -172,14 +161,12 @@ function startHearts() {
         
         container.appendChild(heart);
         
-        // Чистим память: удаляем сердечко, как только оно упало
         setTimeout(() => {
             heart.remove();
         }, duration * 1000);
-    }, 80); // Генерируем новые сердечки каждые 80мс для эффекта ливня
+    }, 80);
 }
 
-// 7. Управление музыкой
 musicToggle.addEventListener('click', () => {
     if (music.paused) {
         music.play();
